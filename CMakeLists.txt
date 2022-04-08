@@ -8,6 +8,6 @@ include_directories(.)
 add_executable(cpp_word_game
         Dictionary.cpp
         Dictionary.h
-        Game.cpp
-        Game.h
-        main.cpp)
+        game.cpp
+        game.h
+        main.cpp session.cpp session.h guess.cpp guess.h)
