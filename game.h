@@ -18,7 +18,7 @@ class Game {
         void increaseDictIndex();
 
     public:
-        Game();
+        Game(){};
         bool isOver = false;
         void startNewSession();
         void displayStatistic();

@@ -13,10 +13,13 @@ int Session::getScore() {
 void Session::run() {
     string word;
     // loop until reach guess limit
-    while (guesses.size() <= guessLimit ){
-        Guess g = Guess(word, correctWord_);
+    while (guesses.size() <= guessLimit){
+        Guess g = Guess(correctWord_);
         g.run();
         guesses.push_back(g);
+        if (g.isCorrect){
+            break;
+        }
     }
 
 }
