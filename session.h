@@ -1,3 +1,7 @@
+#ifndef SESSION_H
+#define SESSION_H
+#pragma once
+
 #include <vector>
 using namespace std;
 
@@ -9,8 +13,10 @@ class Session {
         int guessCount;
 
     public:
-        Session();
+        Session(){};
         bool isGuessCorrect(int index);
         bool isGuess(string word);
         static int getScore();
 };
+
+#endif
