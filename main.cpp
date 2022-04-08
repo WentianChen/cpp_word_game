@@ -8,10 +8,8 @@ using namespace std;
 
 int main(){
     Game game = Game();
-
-    while (!game.isOver) {
-        game.startGame();
-    }
+    // start game
+    game.run();
 
     return 0;
 }

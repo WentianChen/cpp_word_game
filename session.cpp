@@ -1,18 +1,25 @@
 #include <string>
 #include "session.h"
+#include "guess.h"
 
+#include "iostream"
 using namespace std;
 
 
-bool Session::isGuessCorrect(int index) {
-    return false;
-}
-
-bool Session::isGuess(string word_) {
-    return false;
-}
-
 int Session::getScore() {
     return 0;
+}
+
+void Session::run() {
+    string word;
+
+    while (guesses.size() <= 6 ){
+
+        cout << "guess > ";
+        cin >> word;
+        Guess g = Guess(word, correctWord_);
+
+    }
+
 }
 

@@ -6,7 +6,7 @@ class Guess{
     private:
         string guessWord;
     public:
-        Guess(string guessWord);
+        Guess(string guessWord, string correct_word);
         bool isCorrect();
         string sendMessage();
 };

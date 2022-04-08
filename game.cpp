@@ -3,28 +3,76 @@
 #include "iostream"
 #include "session.h"
 #include <string>
+#include "guess.h"
+#include "Dictionary.h"
 
 using namespace std;
 
+void Game::run() {
 
-void Game::startGame() {
-    startMenu();
+    while (!isOver){
+
+        int choice = mainMenu();
+
+        if (choice == 3 ){
+            helpText();
+            continue;
+        }
+
+        if (choice == 1){
+            startNewSession();
+        }
+
+        if (choice == 2){
+            displayStatistic();
+        }
+
+
+
+    }
+
+}
+
+void Game::startNewSession() {
+    Session s = Session(Dictionary::words[dict_index]);
+    sessions.push_back(s);
+    s.run();
 }
 
 
-int Game::startMenu(){
-    int answer;
+void Game::displayStatistic() {
 
-    cout << "Welcome to Werdle." << endl;
-    cout << "Select an option :" << endl;
+    cout << "Played: X Win%: 100 Current streak:1 Max Streak:1" << endl;
     cout << endl;
 
-    cout << "1. Play a game." << endl;
-    cout << "2. View statistic." << endl;
-    cout << "3. View help." << endl;
+    cout << "GUESS DISTRIBUTION" << endl;
+    cout << "1: 0" << endl;
+    cout << "1: 0" << endl;
+    cout << "1: 0" << endl;
+    cout << "1: 0" << endl;
+    cout << "1: 0" << endl;
     cout << endl;
-    cout << "> ";
-    cin >> answer;
+
+}
+
+int Game::mainMenu(){
+    int answer = 0;
+
+    while (true){
+        cout << "Welcome to Werdle." << endl;
+        cout << "Select an option :" << endl;
+        cout << endl;
+
+        cout << "1. Play a game." << endl;
+        cout << "2. View statistic." << endl;
+        cout << "3. View help." << endl;
+        cout << endl;
+        cout << "> ";
+        cin >> answer;
+        if (answer == 1 || answer == 2 || answer == 3){
+            break;
+        }
+    }
 
     return answer;
 }
@@ -43,24 +91,3 @@ void Game::helpText(){
     cout << "The letter E is in the wrong position." << endl;
     cout << endl;
 }
-
-void Game::startNewSession() {
-
-}
-
-vector<Session> Game::getAllSessions() {
-    return vector<Session>();
-}
-
-Session Game::getCurrentSession() {
-    return Session();
-}
-
-string Game::getStatistic() {
-    return "";
-}
-
-bool Game::isOver() {
-    return false;
-}
-
