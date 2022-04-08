@@ -14,7 +14,6 @@ void Guess::setCorrectBool(string word){
 
 void Guess::run() {
     string word;
-    cout << endl;
     cout << "guess >";
     cin >> word; // get user input
 
@@ -24,16 +23,16 @@ void Guess::run() {
     }
     word = lowerString(word); // lower the letters
     setCorrectBool(word); // set isCorrect
-    string ans = formAnswer(word);
-    cout << ans;
+    formAnswer(word);
 }
 
 
 
-string Guess::formAnswer(string word){
+void Guess::formAnswer(string word){
     string answer;
     // check if in the correct position
     for (int i = 0; i < 5; i++) {
+
 
         size_t found = correctWord_.find(word[i]);
         if (found != string::npos){ // in the world
@@ -44,17 +43,27 @@ string Guess::formAnswer(string word){
                 tmp.push_back(']');
                 answer += tmp;
             }else{ // not in the same pos
-                tmp.push_back('|');
-                tmp.push_back(word[i]);
-                tmp.push_back('|');
-                answer += tmp;
+                int count = std::count(correctWord_.begin(), correctWord_.end(), word[i]);
+                if (count >=2){
+                    tmp.push_back('|');
+                    tmp.push_back(word[i]);
+                    tmp.push_back('|');
+                    answer += tmp;
+                }else{
+                    answer.push_back(' ' );
+                    answer.push_back(word[i] );
+                    answer.push_back(' ' );
+
+                }
             }
         }else{
+            answer.push_back(' ' );
             answer.push_back(word[i]);
+            answer.push_back(' ' );
         }
         answer += " ";
     }
-    return answer;
+    message_ = answer;
 }
 
 
@@ -67,4 +76,8 @@ string Guess::lowerString(string word){
         newWord.push_back(ch);
     }
     return newWord;
+}
+
+void Guess::displayMessage() {
+    cout << message_ << endl;
 }

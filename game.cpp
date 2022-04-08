@@ -48,6 +48,11 @@ void Game::increaseDictIndex() {
 }
 
 void Game::displayStatistic() {
+    int numPlayed;
+    int winPercentage;
+    int currenStreak;
+    int maxStreak;
+
 
     cout << "Played: X Win%: 100 Current streak:1 Max Streak:1" << endl;
     cout << endl;

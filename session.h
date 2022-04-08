@@ -11,8 +11,9 @@ using namespace std;
 class Session {
 
     private:
-        vector<Guess> guesses;
+        vector<Guess> guesses_;
         string correctWord_;
+        bool winOrLoss_ = false;
         int guessLimit = 6;
 
     public:
@@ -20,8 +21,11 @@ class Session {
             correctWord_ = correctWord;
         };
         static int getScore();
+        void endMessage();
 
     void run();
 };
+
+
 
 #endif

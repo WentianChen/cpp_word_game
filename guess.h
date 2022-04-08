@@ -9,15 +9,18 @@ using namespace std;
 class Guess{
     private:
         string correctWord_;
-    public:
+        string message_;
+
+public:
         Guess(string correctWord){
             correctWord_ = correctWord;
         };
         bool isCorrect;
         void run();
-        string formAnswer(string word);
+        void formAnswer(string word);
         void setCorrectBool(string word);
         string lowerString(string word);
+        void displayMessage();
 };
 
 #endif
