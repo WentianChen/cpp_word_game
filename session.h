@@ -13,6 +13,7 @@ class Session {
     private:
         vector<Guess> guesses;
         string correctWord_;
+        int guessLimit = 6;
 
     public:
         Session(string correctWord){

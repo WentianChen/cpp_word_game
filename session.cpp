@@ -12,13 +12,11 @@ int Session::getScore() {
 
 void Session::run() {
     string word;
-
-    while (guesses.size() <= 6 ){
-
-        cout << "guess > ";
-        cin >> word;
+    // loop until reach guess limit
+    while (guesses.size() <= guessLimit ){
         Guess g = Guess(word, correctWord_);
-
+        g.run();
+        guesses.push_back(g);
     }
 
 }

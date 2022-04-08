@@ -1,14 +1,20 @@
 #include "string"
 #include "guess.h"
 
-Guess::Guess(string word) {
-    guessWord = word;
-}
+using namespace std;
 
 bool Guess::isCorrect() {
-    return false;
+    return guessWord_ == correctWord_;
 }
 
-string Guess::sendMessage() {
+void Guess::run() {
+    while ()
+    cin >> word;
+    g.sendMessage();
+}
+
+string Guess::formMessage() {
     return std::string();
 }
+
+

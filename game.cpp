@@ -34,11 +34,18 @@ void Game::run() {
 }
 
 void Game::startNewSession() {
-    Session s = Session(Dictionary::words[dict_index]);
-    sessions.push_back(s);
-    s.run();
+    Session s = Session(Dictionary::words[dict_index]); // init a new session
+    s.run(); // run a session
+    sessions.push_back(s); // push new session into sessions when session end
+    increaseDictIndex(); // increase the dict index when session end
 }
 
+void Game::increaseDictIndex() {
+    dict_index ++;
+    if (dict_index > Dictionary::WORD_COUNT){
+        dict_index = 0;
+    }
+}
 
 void Game::displayStatistic() {
 
@@ -91,3 +98,4 @@ void Game::helpText(){
     cout << "The letter E is in the wrong position." << endl;
     cout << endl;
 }
+
