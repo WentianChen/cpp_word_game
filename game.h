@@ -6,6 +6,7 @@
 #include "session.h"
 #include <string>
 #include "Dictionary.h"
+#include <map>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Game {
         int mainMenu();
         void helpText();
         void increaseDictIndex();
+        map<int,int> distDict;
 
     public:
         Game(){};

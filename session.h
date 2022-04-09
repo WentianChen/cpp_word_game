@@ -20,8 +20,9 @@ class Session {
         Session(string correctWord){
             correctWord_ = correctWord;
         };
-        static int getScore();
+        bool isWin();
         void endMessage();
+        vector<Guess> getAllGuesses();
 
     void run();
 };

@@ -5,11 +5,6 @@
 #include "iostream"
 using namespace std;
 
-
-int Session::getScore() {
-    return 0;
-}
-
 void Session::run() {
     string word;
     // loop until reach guess limit
@@ -35,28 +30,31 @@ void Session::run() {
 
 
 void Session::endMessage() {
-    int num = 0;
+    int num = guesses_.size();
     if (winOrLoss_){
-        if (num == 1){
+        if (num == 1) {
             cout << "Impossible!" << endl;
-        }
-        else if (num == 2){
+        } else if (num == 2) {
             cout << "Amazing!" << endl;
-        }
-        else if (num == 3){
+        } else if (num == 3) {
             cout << "Outstanding!" << endl;
-        }
-        else if (num == 4){
+        } else if (num == 4) {
             cout << "Great!" << endl;
-        }
-        else if (num == 5){
+        } else if (num == 5) {
             cout << "Nice one!" << endl;
-        }
-        else {
+        } else {
             cout << "You got there!" << endl;
         }
     }else{
         cout << "Correct answer: " << correctWord_ << endl;
     }
     cout << endl;
+}
+
+bool Session::isWin() {
+    return winOrLoss_;
+}
+
+vector<Guess> Session::getAllGuesses() {
+    return guesses_;
 }
