@@ -13,11 +13,11 @@ void Game::run() {
 
     while (!isOver){
 
-        int choice = mainMenu();
+        string choice = mainMenu();
 
-        if (choice == 1){
+        if (choice == "1"){
             startNewSession();
-        }else if (choice == 2){
+        }else if (choice == "2"){
             displayStatistic();
         }else{
             helpText();
@@ -104,10 +104,9 @@ void Game::displayStatistic() {
 
 }
 
-int Game::mainMenu(){
-    vector<int> answers;
+string Game::mainMenu(){
+    string ans;
     while (true){
-        int ans;
         cout << "Welcome to Werdle." << endl;
         cout << "Select an option :" << endl;
         cout << endl;
@@ -118,13 +117,12 @@ int Game::mainMenu(){
         cout << endl;
         cout << "> ";
         cin >> ans;
-        if (ans == 1 || ans == 2 || ans == 3){
-            answers.push_back(ans);
+        if (ans == "1" || ans == "2" || ans == "3"){
             break;
         }
     }
 
-    return answers.back();
+    return ans;
 }
 
 void Game::helpText(){

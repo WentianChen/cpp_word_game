@@ -14,7 +14,7 @@ class Game {
     private:
         vector<Session> sessions;
         int dict_index = 0;
-        int mainMenu();
+        string mainMenu();
         void helpText();
         void increaseDictIndex();
         map<int,int> distDict;
