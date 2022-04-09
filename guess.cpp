@@ -44,6 +44,8 @@ void Guess::formAnswer(string word){
                 answer += tmp;
             }else{ // not in the same pos
                 int count = std::count(correctWord_.begin(), correctWord_.end(), word[i]);
+                int char_count = std::count(word.begin(), word.end(), word[i]);
+
                 if (count >=2){
                     tmp.push_back('|');
                     tmp.push_back(word[i]);
